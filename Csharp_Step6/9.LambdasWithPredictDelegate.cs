@@ -120,6 +120,70 @@ namespace LambdWithPredictDelegate
 
 
 
+            Predicate<string> checkroomavailability1 = (string roomtype) =>
+            {
+                Dictionary<int, string> FiveStarHotel = new Dictionary<int, string>
+                {
+                    {101, "Room 101" },
+                    {102, "Room 102"},
+                    {103, "Room 103" }
+                };
+
+
+                if (int.TryParse(roomtype, out int roomKey))
+                {
+                    if (FiveStarHotel.TryGetValue(roomKey, out string roomName))
+                    {
+                        //Console.WriteLine("Room is Available");
+                        return true;
+                    }
+
+                }
+                //Console.WriteLine("Sorry! Room is filled or key is invalid.");
+                return false;
+            };
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("Please enter the room number to check availability:");
+            string input = Console.ReadLine();
+
+            bool isAvailable = checkroomavailability1(input);
+
+            if (isAvailable)
+            {
+                Console.WriteLine("🎉 Room is available.");
+                // Optional: int roomNum = Convert.ToInt32(isAvailable); // yields 1
+            }
+            else
+            {
+                Console.WriteLine("⛔ Room is not available or invalid input.");
+                // Optional: int roomNum = Convert.ToInt32(isAvailable); // yields 0
+            }
+
+
+            //Console.WriteLine("Please Enter the Room Number to Check the Availability");
+            //bool roomcheck1 = checkroomavailability(roomtype);
+            //int roomnum = int.Parse(roomcheck1);
+
+            //if (int.TryParse(roomtype), out int roomKey));
+            //{
+            //    if (FiveStarHotel.ContainsKey(roomKey))
+            //    {
+            //        Console.WriteLine("Room is Available");
+            //    }
+            //}
+
+
+
+            //for (int i = 0; i < FiveStarHotel.Count; i++)
+            //{
+            //    if (FiveStarHotel.ContainsKey(i))
+            //    {
+            //        Console.WriteLine("Room You are Searching is Available");
+            //        return true;
+            //    }
+            //}
+            //Console.WriteLine("Sorry!! Room is Filled! Room is Not Available");
+            //return false;
 
 
 
@@ -133,7 +197,8 @@ namespace LambdWithPredictDelegate
 
 
 
-                //bool name = Console.ReadLine() != null;
+
+            //bool name = Console.ReadLine() != null;
 
             //Predicate<string> isStaffAvailablePredicate = (string staffName) =>
             //{
@@ -149,6 +214,40 @@ namespace LambdWithPredictDelegate
             //};
             //bool isAvailable = isStaffAvailablePredicate("John");
             //Console.WriteLine(isAvailable);
+
+
+            Predicate<string> seatcheck = (string seattype) =>
+            {
+                Dictionary<int, string> Redbus = new Dictionary<int, string>
+                {
+                    {1, "Seater" },
+                    {2, "Seater" },
+                    {3, "Sleeper" },
+                    {4, "Sleeper" }
+                };
+                if(int.TryParse(seattype, out int seatkey))
+                {
+                    if(Redbus.TryGetValue(seatkey, out string seatname)) 
+                    { 
+                        return true; 
+                    }
+
+                }
+                return false;
+            };
+
+            Console.WriteLine("Please Enter the SeatNumber to check Availability");
+            string input1 = Console.ReadLine();
+            bool isAvailable1 = seatcheck(input1);
+            if (isAvailable1)
+            {
+                Console.WriteLine("🎉💺 Seater/Sleeper is available");
             }
+            else
+            {
+                Console.WriteLine("⛔ Seater/Sleeper is not Available");
+            }
+
+        }
     }
-    }
+}
