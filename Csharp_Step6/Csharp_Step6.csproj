@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LambdWithPredictDelegate.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +49,12 @@
     <Compile Include="1.Delegates.cs" />
     <Compile Include="2.DelegatesWithReturn.cs" />
     <Compile Include="3.AnonymousMethod.cs" />
+    <Compile Include="6.AnonymousWithReturnToLambda.cs" />
+    <Compile Include="4.AnonymousWithReturn.cs" />
+    <Compile Include="5.AnonymousToLambda.cs" />
+    <Compile Include="7.LambdasWithFuncDelegate.cs" />
+    <Compile Include="8.LambdasWithActionDelegate.cs" />
+    <Compile Include="9.LambdasWithPredictDelegate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
