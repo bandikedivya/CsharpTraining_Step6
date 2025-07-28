@@ -17,56 +17,52 @@ namespace LambdWithPredictDelegate
         {
 
 
-            //Predicate<string> checkorder = (string ordername) =>
-            //{
-            //    return true;
-            //};
-            //bool checkfoodorder = checkorder("Dosa");
-            //Console.WriteLine(checkfoodorder);
+            Predicate<string> checkorder = (string ordername) =>
+            {
+                return true;
+            };
+            bool checkfoodorder = checkorder("Dosa");
+            Console.WriteLine(checkfoodorder);
 
 
 
-            //Predicate<string> checkavailable = (string FoodName) =>
-            //{
-            //    string[] fooditems = { "Rice", "Curry", "Dal", "Idly", "Vada", "Dosa" };
-            //    for (int i = 0; i < fooditems.Length; i++)
-            //    {
-            //        if (fooditems[i] == FoodName)
-            //        {
-            //            Console.WriteLine("Food Is Available");
-            //            Console.WriteLine($"Preparing Your Food: {FoodName}");
-            //    return true;
-            //        }
-            //    }
-            //    Console.WriteLine("Sorry!! The Item You are searching for is Not Available Right now!!");
-            //    return false;
-            //};
+            Predicate<string> checkavailable = (string FoodName) =>
+            {
+                string[] fooditems = { "Rice", "Curry", "Dal", "Idly", "Vada", "Dosa" };
+                for (int i = 0; i < fooditems.Length; i++)
+                {
+                    if (fooditems[i] == FoodName)
+                    {
+                        Console.WriteLine("Food Is Available");
+                        Console.WriteLine($"Preparing Your Food: {FoodName}");
+                        return true;
+                    }
+                }
+                Console.WriteLine("Sorry!! The Item You are searching for is Not Available Right now!!");
+                return false;
+            };
 
 
 
-            //Console.OutputEncoding = System.Text.Encoding.UTF8;
-            //Console.WriteLine($"Please Select From Menu");
-            //Console.WriteLine($"1.🍚Rice\n2.🍛Curry\n3.🍜Noodles\n4.🥯Vada\n6.🍲Soup");
-            //string Foodname  = Console.ReadLine();
-            //bool IsAvailable = checkavailable(Foodname);
-            //if (IsAvailable)
-            //{
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine($"Please Select From Menu");
+            Console.WriteLine($"1.🍚Rice\n2.🍛Curry\n3.🍜Noodles\n4.🥯Vada\n6.🍲Soup");
+            string Foodname = Console.ReadLine();
+            bool IsAvailable = checkavailable(Foodname);
+            if (IsAvailable)
+            {
 
-            //    Console.WriteLine($"Serving Food: {Foodname}");
+                Console.WriteLine($"Serving Food: {Foodname}");
 
-            //}
-            //else
-            //{
-            //    string Isfoodavailable = $"Sorry!! Food is Not Available";
+            }
+            else
+            {
+                string Isfoodavailable = $"Sorry!! Food is Not Available";
 
-            //}
-
-
-            //Console.WriteLine("Hope You Like The Service. Thank You!! Visit Again...");
+            }
 
 
-
-
+            Console.WriteLine("Hope You Like The Service. Thank You!! Visit Again...");
 
 
 
@@ -94,13 +90,50 @@ namespace LambdWithPredictDelegate
             //bool name = Name("Taylor");
             //Console.WriteLine(name);
 
-
+            Console.WriteLine();
             Console.WriteLine("Please Enter Name to check in the list");
             string name = Console.ReadLine();
             bool checkname = Name(name);
-           
 
-            //bool name = Console.ReadLine() != null;
+
+            Predicate<string> checkroomavailability = (string roomtype) =>
+            {
+                List<string> roomtypes = new List<string> { "StudioRoom", "BalconyRoom", "OceanviewRoom" };
+                for (int i = 0; i < roomtypes.Count; i++)
+                {
+                    if (roomtypes[i] == roomtype)
+                    {
+                        Console.WriteLine("Room is Available");
+                        return true;
+                    }
+                }
+                Console.WriteLine("Sorry!!, Room is Not Available");
+                return false;
+            };
+
+
+
+            Console.WriteLine("Please Enter the Room Type to Check Availability");
+            string roomnamecheck = Console.ReadLine();
+            bool roomcheck = checkroomavailability(roomnamecheck);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //bool name = Console.ReadLine() != null;
 
             //Predicate<string> isStaffAvailablePredicate = (string staffName) =>
             //{
@@ -116,6 +149,6 @@ namespace LambdWithPredictDelegate
             //};
             //bool isAvailable = isStaffAvailablePredicate("John");
             //Console.WriteLine(isAvailable);
-        }
+            }
     }
-}
+    }

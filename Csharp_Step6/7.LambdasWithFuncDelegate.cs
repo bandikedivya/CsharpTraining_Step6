@@ -74,6 +74,7 @@ namespace LambdaWithFuncDelegate
                 return "Location is Banglore";
             };
 
+            
         }
 
     }
